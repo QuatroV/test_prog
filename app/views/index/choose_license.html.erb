@@ -1,0 +1,15 @@
+<h1> CHOOSE LICENSE </h1>
+<%= form_with url: index_get_versions_path, local: true do |f|%>
+<%= collection_select(:license, :id, License.all, :id, :paid_till)%>
+<%= f.button :submit%>
+<% end %>
+<h1> NEW LICENSE </h1>
+<%= form_with url: index_new_license_path do |f| %>
+  <%= f.label "Paid till:" %>
+  <%= f.date_select :paid_till %>
+  <%= f.label "Max version:" %>
+  <%= f.text_field :max_version %>
+  <%= f.label "Min version:" %>
+  <%= f.text_field :min_version %>
+  <%= f.button :submit%>
+<% end %>
